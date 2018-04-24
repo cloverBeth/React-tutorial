@@ -23,6 +23,9 @@ export default class Home extends Component {
     })
     console.log(this);
   }
+  handleGreet() {
+    this.props.greet(this.state.age);
+  }
 
   render() {
     return (
@@ -39,6 +42,8 @@ export default class Home extends Component {
               </ul>
             </div>
             <div>{this.props.children}</div>
+            {/*父组件传递过来的函数*/}
+            <button onClick={this.handleGreet.bind(this)} className="btn btn-success">Greet</button>
           </div>
         </div>
         
@@ -51,5 +56,6 @@ Home.propTypes = {
   name: PropTypes.string,
   age: PropTypes.number,
   user: PropTypes.object,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  greet: PropTypes.func
 }
