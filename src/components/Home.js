@@ -7,7 +7,8 @@ export default class Home extends Component {
     super(props);
     this.state = {
       age: props.initialAge,
-      status: 0
+      status: 0,
+      homelink: 'Changed Link'
     }
     setTimeout(() => {
       this.setState({
@@ -26,7 +27,9 @@ export default class Home extends Component {
   handleGreet() {
     this.props.greet(this.state.age);
   }
-
+  onChangeLink() {
+    this.props.changelink(this.state.homelink);
+  }
   render() {
     return (
       <div className="container">
@@ -44,6 +47,8 @@ export default class Home extends Component {
             <div>{this.props.children}</div>
             {/*父组件传递过来的函数*/}
             <button onClick={this.handleGreet.bind(this)} className="btn btn-success">Greet</button>
+            <hr/>
+            <button onClick={this.onChangeLink.bind(this)} className="btn btn-warning">Change Home Link</button>
           </div>
         </div>
         

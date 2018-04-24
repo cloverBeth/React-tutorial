@@ -7,8 +7,7 @@ const Header = (props) => {
         <div className="row">
           <div className="col-xs-1 col-xs-offset-11">
             <h1> Header</h1>
-
-                {true ? '111111' : '222222'}
+                {props.homeLink}
            </div>
         </div>
         
